@@ -1,0 +1,35 @@
+{
+  "name": "@dwdht/rpc",
+  "version": "0.1.1",
+  "description": "dWeb Library For Making RPC Calls Over A Kademlia-based DHT Network.",
+  "contributors": [
+    "Jared Rice Sr. <jared@dwebs.io>",
+    "Bench Computer, Inc. <legal@benchx.io>"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && tape test.js",
+    "protobuf": "protocol-buffers schema.proto -o messages.js"
+  },
+  "dependencies": {
+    "@dwcore/dwsc": "dwcore/dwsc#master",
+    "@dwcore/dwsd": "dwcore/dwsd#master",
+    "@dwdht/peers": "dwdht/peers#master",
+    "inherits": "^2.0.3",
+    "k-bucket": "^3.2.1",
+    "protocol-buffers-encodings": "^1.1.0",
+    "readable-stream": "^2.1.5",
+    "sodium-universal": "^2.0.0",
+    "udp-request": "^1.3.0",
+    "xor-distance": "^1.0.0"
+  },
+  "devDependencies": {
+    "protocol-buffers": "^3.2.1",
+    "standard": "^11.0.1",
+    "tape": "^4.9.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
