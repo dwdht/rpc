@@ -2,7 +2,7 @@ var tape = require('tape')
 var dht = require('./')
 var blake2b = require('./blake2b')
 
-tape('simple update', function (t) {
+tape('dWeb DHT RPC Tests: Simple Update', function (t) {
   bootstrap(function (port, node) {
     var a = dht({bootstrap: port})
     var b = dht({bootstrap: port})
@@ -34,7 +34,7 @@ tape('simple update', function (t) {
   })
 })
 
-tape('simple query', function (t) {
+tape('dWeb DHT RPC Tests: Simple Query', function (t) {
   bootstrap(function (port, node) {
     var a = dht({bootstrap: port})
     var b = dht({bootstrap: port})
@@ -64,7 +64,7 @@ tape('simple query', function (t) {
   })
 })
 
-tape('targeted query', function (t) {
+tape('dWeb DHT RPC Tests: Targeted Query', function (t) {
   bootstrap(function (port, node) {
     var a = dht({bootstrap: port})
 
@@ -109,7 +109,7 @@ tape('targeted query', function (t) {
   })
 })
 
-tape('targeted update', function (t) {
+tape('dWeb DHT RPC Tests: Targeted Update', function (t) {
   bootstrap(function (port, node) {
     var a = dht({bootstrap: port})
 
@@ -154,15 +154,15 @@ tape('targeted update', function (t) {
   })
 })
 
-tape('swarm query', function (t) {
+tape('dWeb DHT RPC Tests: Flock Query', function (t) {
   bootstrap(function (port, node) {
-    var swarm = []
+    var flock = []
     var closest = 0
 
     loop()
 
     function done () {
-      t.pass('created swarm')
+      t.pass('created flock')
       var key = blake2b(Buffer.from('greetings'))
       var me = dht({bootstrap: port})
 
@@ -177,7 +177,7 @@ tape('swarm query', function (t) {
           if (data.value) {
             t.same(data.value, Buffer.from('greetings'), 'echoed value')
             t.end()
-            swarm.forEach(function (node) {
+            flock.forEach(function (node) {
               node.destroy()
             })
             me.destroy()
@@ -189,9 +189,9 @@ tape('swarm query', function (t) {
     }
 
     function loop () {
-      if (swarm.length === 256) return done()
+      if (flock.length === 256) return done()
       var node = dht({bootstrap: port})
-      swarm.push(node)
+      flock.push(node)
 
       var value = null
 
