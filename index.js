@@ -420,7 +420,7 @@ function parseAddr (addr) {
   if (typeof addr === 'object' && addr) return addr
   if (typeof addr === 'number') return parseAddr(':' + addr)
   if (addr[0] === ':') return parseAddr('127.0.0.1' + addr)
-  return {port: Number(addr.split(':')[1] || 3282), host: addr.split(':')[0]}
+  return {port: Number(addr.split(':')[1] || 6620), host: addr.split(':')[0]}
 }
 
 function validateId (id) {
