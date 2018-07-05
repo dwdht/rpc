@@ -2,7 +2,7 @@ var dht = require('./')
 var blake2b = require('./blake2b')
 
 var node = dht({
-  bootstrap: 'localhost:49737',
+  bootstrap: 'bootstrap1.dwebs.io:49737',
   ephemeral: !!process.argv[2]
 })
 
