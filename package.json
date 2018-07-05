@@ -1,6 +1,6 @@
 {
   "name": "@dwdht/rpc",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "dWeb Library For Making RPC Calls Over A Kademlia-based DHT Network.",
   "contributors": [
     "Jared Rice Sr. <jared@dwebs.io>",
